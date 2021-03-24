@@ -34,9 +34,9 @@ function writePassword() {
         newPass.push(lowerChar[i]);
       }
       console.log(newPass);
-      alert("Lowercase letters have been added!");
+      window.alert("Lowercase letters have been added!");
     } else {
-      alert("You have chosen to NOT use lowercase letters.");
+      window.alert("You have chosen to NOT use lowercase letters.");
     }
 
     answer = window.confirm("Would you like to use uppercase letters in your password?");
@@ -46,9 +46,9 @@ function writePassword() {
         newPass.push(upperChar[i]);
       }
       console.log(newPass);
-      alert("Uppercase letters have been added!");
+      window.alert("Uppercase letters have been added!");
     } else {
-      alert("You have chosen to NOT use uppercase letters.");
+      window.alert("You have chosen to NOT use uppercase letters.");
     }
 
     answer = window.confirm("Would you like to use numbers in your password?");
@@ -58,9 +58,9 @@ function writePassword() {
         newPass.push(numChar[i]);
       }
       console.log(newPass);
-      alert("Numbers have been added!");
+      window.alert("Numbers have been added!");
     } else {
-      alert("You have chosen to NOT use numbers.");
+      window.alert("You have chosen to NOT use numbers.");
     }
 
     answer = window.confirm("Would you like to use special characters in your password?");
@@ -70,14 +70,24 @@ function writePassword() {
         newPass.push(specChar[i]);
       }
       console.log(newPass);
-      alert("Special characters have been added!");
+      window.alert("Special characters have been added!");
     } else if (newPass.length < 1) {
-      alert("You must choose at least one character option. Please try again!");
+      window.alert("You must choose at least one character option. Please try again!");
       generatePassword();
     } else {
-      alert("You have chosen to NOT use special characters.");
+      window.alert("You have chosen to NOT use special characters.");
     }
 
+    var passString = "";
+
+    for (i = 0; i < passLength; i++) {
+      var passIndex = Math.floor(Math.random() * newPass.length);
+      passString = passString + newPass[passIndex];
+      console.log(passString);
+    }
+
+    // return alert("Your new password is " + passString);
+    return passString;
 
   }
 
@@ -85,8 +95,6 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   
-  
-
   // Last item
   passwordText.value = password;
 
