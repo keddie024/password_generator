@@ -22,10 +22,8 @@ function generatePassword() {
 
   if (passLength >= 8 && passLength <= 128) {
     window.alert("You have selected " + passLength + " characters.");
-  } else if (!passLength) {
-      return;
-  } else {
-     generatePassword();
+  }  else {
+     return "Please try again";
   }
 
    var newPass = [];
@@ -90,11 +88,9 @@ function generatePassword() {
     console.log(passString);
   }
 
-  // return alert("Your new password is " + passString);
   return passString.toString();
 
 }
 
-// Add event listener to generate button
 // Executes writePassword function when "Generate Password" is clicked
 generateBtn.addEventListener("click", writePassword);
